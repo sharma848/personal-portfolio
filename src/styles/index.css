@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Midnight Tech Color Palette - Single Source of Truth */
+:root {
+  /* Dark Theme (Default) - Soft navy and charcoal tones */
+  --bg-main: #0F1419;
+  --bg-surface: #1A1F2E;
+  --color-primary: #6B8FFF;
+  --color-accent: #4AB3C7;
+  --text-main: #E8EAED;
+  --text-muted: #9CA3AF;
+  --border-soft: #252A3A;
+  
+  /* Shadow variables for dark theme - reduced saturation */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 0 8px 20px -4px rgba(107, 143, 255, 0.2);
+  --shadow-primary-hover: 0 8px 20px -4px rgba(107, 143, 255, 0.25);
+}
+
+[data-theme="light"] {
+  /* Light Theme - Warm light grays, reduced intensity */
+  --bg-main: #F5F6F8;
+  --bg-surface: #FAFBFC;
+  --color-primary: #2563EB;
+  --color-accent: #0A9BB8;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --border-soft: #E5E7EB;
+  
+  /* Shadow variables for light theme (reduced intensity) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0 8px 20px -4px rgba(37, 99, 235, 0.12);
+  --shadow-primary-hover: 0 8px 20px -4px rgba(37, 99, 235, 0.15);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  /* Background changes first in theme transitions */
+  transition: background-color 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Theme Transition Enhancement - Subtle, mobile-optimized */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at center, rgba(107, 143, 255, 0.05) 0%, transparent 70%);
+  transition: opacity 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 9999;
+  will-change: opacity;
+}
+
+[data-theme="light"] body::before {
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+}
+
+/* Optimize theme transitions on mobile */
+@media (max-width: 768px) {
+  body::before {
+    display: none; /* Disable gradient overlay on mobile for performance */
+  }
+}
+
+body.theme-transitioning::before {
+  opacity: 1;
+}
+
+/* Motion hierarchy: Background → Surfaces → Text/Borders */
+/* Background transitions (first) */
+[class*="bg-"] {
+  transition: background-color 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Surface transitions (second) */
+[class*="bg-bg-surface"],
+[class*="bg-bg-main"] {
+  transition: background-color 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Text and border transitions (last) */
+* {
+  transition: color 500ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              border-color 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Micro-interactions (hover, focus) */
+button,
+a,
+[role="button"] {
+  transition: background-color 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              color 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              border-color 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              transform 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  body::before {
+    display: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection - Theme-aware */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--bg-main);
+}
+
+[data-theme="light"] ::selection {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
