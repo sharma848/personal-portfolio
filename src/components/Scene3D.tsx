@@ -4,20 +4,8 @@ import { Suspense, useMemo, useRef, useEffect } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import * as THREE from "three";
 
-// Helper function to convert hex to RGB
-function hexToRgb(hex: string): [number, number, number] {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-        ? [
-              parseInt(result[1], 16) / 255,
-              parseInt(result[2], 16) / 255,
-              parseInt(result[3], 16) / 255,
-          ]
-        : [0, 0, 0];
-}
-
 // Starfield Animation Component
-function Starfield({ theme }: { theme: "dark" | "light" }) {
+function Starfield() {
     const pointsRef = useRef<THREE.Points>(null);
     const positionsRef = useRef<Float32Array | null>(null);
     const sizesRef = useRef<Float32Array | null>(null);
@@ -190,8 +178,11 @@ function Starfield({ theme }: { theme: "dark" | "light" }) {
 
         // Update geometry
         const positionAttribute = pointsRef.current.geometry.attributes.position;
-        if (positionAttribute) {
-            positionAttribute.array = positions;
+        if (positionAttribute && positionAttribute instanceof THREE.BufferAttribute) {
+            const array = positionAttribute.array as Float32Array;
+            for (let i = 0; i < positions.length; i++) {
+                array[i] = positions[i];
+            }
             positionAttribute.needsUpdate = true;
         }
     });
@@ -208,7 +199,7 @@ function Scene() {
     return (
         <>
             <color attach="background" args={[bgColor]} />
-            <Starfield theme={theme} />
+            <Starfield />
         </>
     );
 }

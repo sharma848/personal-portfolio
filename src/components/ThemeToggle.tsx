@@ -47,7 +47,7 @@ export const ThemeToggle = () => {
               key="sun"
               initial={shouldReduceMotion ? false : { opacity: 0, rotate: -90, scale: 0.8 }}
               animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={shouldReduceMotion ? false : { opacity: 0, rotate: 90, scale: 0.8 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, rotate: 90, scale: 0.8 }}
               transition={{
                 duration: shouldReduceMotion ? 0.01 : 0.3,
                 ease: [0.4, 0.0, 0.2, 1],
@@ -61,7 +61,7 @@ export const ThemeToggle = () => {
               key="moon"
               initial={shouldReduceMotion ? false : { opacity: 0, rotate: 90, scale: 0.8 }}
               animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={shouldReduceMotion ? false : { opacity: 0, rotate: -90, scale: 0.8 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, rotate: -90, scale: 0.8 }}
               transition={{
                 duration: shouldReduceMotion ? 0.01 : 0.3,
                 ease: [0.4, 0.0, 0.2, 1],

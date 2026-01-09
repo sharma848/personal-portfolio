@@ -66,7 +66,7 @@ export const Projects = () => {
           animate={isInView ? 'visible' : 'hidden'}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.name}
               variants={cardVariants}
