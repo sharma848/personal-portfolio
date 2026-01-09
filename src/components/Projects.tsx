@@ -3,12 +3,10 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { portfolioConfig } from '../config/portfolio';
-import { useTheme } from '../contexts/ThemeContext';
 
 export const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { theme } = useTheme();
 
   const { projects } = portfolioConfig;
 
@@ -76,11 +74,7 @@ export const Projects = () => {
             >
               {/* Subtle hover effect - minimal glow */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-[cubic-bezier(0.4,0.0,0.2,1)] ${
-                  theme === 'dark' 
-                    ? 'from-primary/3 to-accent/3' 
-                    : 'from-primary/2 to-accent/2'
-                }`}
+                className="absolute inset-0 bg-gradient-to-br from-primary/3 to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-[cubic-bezier(0.4,0.0,0.2,1)]"
               />
               
               <div className="relative z-10">

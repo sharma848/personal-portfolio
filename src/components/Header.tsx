@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
   { name: 'Home', href: '#hero' },
@@ -54,7 +53,7 @@ export const Header = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.4, 0.0, 0.2, 1] }}
           >
-            AC
+            AS
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -71,11 +70,8 @@ export const Header = () => {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
-
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-lg bg-bg-surface border border-border-soft text-text-main"

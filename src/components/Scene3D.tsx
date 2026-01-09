@@ -1,7 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useMemo, useRef, useEffect } from "react";
-import { useTheme } from "../contexts/ThemeContext";
 import * as THREE from "three";
 
 // Starfield Animation Component
@@ -192,9 +191,8 @@ function Starfield() {
 
 // Main scene component
 function Scene() {
-    const { theme } = useTheme();
     // Dark background for night sky
-    const bgColor = theme === "dark" ? "#0A0E1A" : "#0A0E1A";
+    const bgColor = "#0A0E1A";
 
     return (
         <>

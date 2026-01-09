@@ -21,23 +21,6 @@
   --shadow-primary-hover: 0 8px 20px -4px rgba(107, 143, 255, 0.25);
 }
 
-[data-theme="light"] {
-  /* Light Theme - Warm light grays, reduced intensity */
-  --bg-main: #F5F6F8;
-  --bg-surface: #FAFBFC;
-  --color-primary: #2563EB;
-  --color-accent: #0A9BB8;
-  --text-main: #111827;
-  --text-muted: #6B7280;
-  --border-soft: #E5E7EB;
-  
-  /* Shadow variables for light theme (reduced intensity) */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-  --shadow-primary: 0 8px 20px -4px rgba(37, 99, 235, 0.12);
-  --shadow-primary-hover: 0 8px 20px -4px rgba(37, 99, 235, 0.15);
-}
 
 /* Base Styles */
 * {
@@ -85,9 +68,6 @@ body::before {
   will-change: opacity;
 }
 
-[data-theme="light"] body::before {
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
-}
 
 /* Optimize theme transitions on mobile */
 @media (max-width: 768px) {
@@ -169,8 +149,4 @@ a,
   color: var(--bg-main);
 }
 
-[data-theme="light"] ::selection {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-}
 
