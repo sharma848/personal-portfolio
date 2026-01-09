@@ -7,6 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Senior Frontend Engineer - Premium Portfolio" />
     <title>Portfolio | Senior Frontend Engineer</title>
+    <!-- Prevent white flash on page load -->
+    <script>
+      // Set theme immediately before page renders
+      document.documentElement.setAttribute('data-theme', 'dark');
+    </script>
+    <style>
+      /* Critical CSS to prevent white flash */
+      html, body {
+        background-color: #0F1419;
+        color: #E8EAED;
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        background-color: #0F1419;
+        min-height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
