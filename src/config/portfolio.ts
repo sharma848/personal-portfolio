@@ -2,12 +2,13 @@
 export const portfolioConfig = {
     personal: {
         name: "Abhishek Sharma",
-        role: "Senior Frontend Engineer",
-        tagline: "Building beautiful, performant web experiences",
-        bio: "I'm a senior frontend engineer with 8+ years of experience crafting premium user interfaces. I specialize in React, TypeScript, and modern web technologies, with a passion for creating seamless, accessible, and performant applications.",
+        role: "Senior Lead Engineer",
+        tagline:
+            "Full-stack engineer building scalable applications and AI-powered solutions",
+        bio: "I'm a senior lead engineer with 10+ years of experience in full-stack development, specializing in both frontend and backend technologies. I craft scalable, performant applications using React, TypeScript, Node.js, and modern web technologies. Recently, I've been exploring the intersection of AI and software development, creating intelligent agents on top of LLMs to solve complex problems and enhance user experiences.",
         email: "sharmaabhishek848@gmail.com",
-        github: "https://github.com/alexchen",
-        linkedin: "https://linkedin.com/in/alexchen",
+        github: "https://github.com/sharma848",
+        linkedin: "https://www.linkedin.com/in/abhishek-sharma-70b453a2/",
     },
     skills: {
         frontend: [
@@ -48,36 +49,66 @@ export const portfolioConfig = {
     ],
     projects: [
         {
-            name: "E-Commerce Platform",
+            name: "UniConvert",
             description:
-                "High-performance e-commerce platform with real-time inventory, advanced search, and seamless checkout experience.",
-            tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-            github: "https://github.com/alexchen/ecommerce",
-            live: "https://ecommerce-demo.example.com",
+                "All-in-one file conversion platform for PDFs and images. Features include converting between formats, merging/splitting PDFs, batch processing, and image transformations with resize, compress, and rotate options.",
+            tech: [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Express",
+                "Tailwind CSS",
+                "Shadcn UI",
+                "React Query",
+            ],
+            github: "https://github.com/sharma848/uni-converter",
+            live: "https://uni-converter.netlify.app/",
         },
         {
-            name: "Design System Library",
+            name: "Expense Tracker",
             description:
-                "Comprehensive component library with 50+ reusable components, full TypeScript support, and accessibility compliance.",
-            tech: ["React", "TypeScript", "Storybook", "Tailwind CSS"],
-            github: "https://github.com/alexchen/design-system",
-            live: "https://design-system.example.com",
+                "Cross-platform mobile expense tracking app built with React Native and Expo. Features include expense management, payment method tracking, filtering by category/date, monthly analytics with charts, and full offline support using AsyncStorage.",
+            tech: [
+                "React Native",
+                "TypeScript",
+                "Expo",
+                "React Navigation",
+                "Zustand",
+                "AsyncStorage",
+            ],
+            github: "https://github.com/sharma848/expense-tracker-react-native",
         },
         {
-            name: "Analytics Dashboard",
+            name: "MCP Marketplace",
             description:
-                "Real-time analytics dashboard with data visualization, custom reports, and export functionality.",
-            tech: ["React", "D3.js", "Python", "FastAPI"],
-            github: "https://github.com/alexchen/analytics",
-            live: "https://analytics-demo.example.com",
+                "Full-stack web application for managing and testing MCP (Model Context Protocol) servers and tools. Features include server registration and management, tool discovery, real-time tool testing with custom parameters, formatted result visualization, and team-based organization.",
+            tech: [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "Mongoose",
+                "Tailwind CSS",
+                "Vite",
+            ],
         },
         {
-            name: "Mobile-First Web App",
+            name: "iCoder",
             description:
-                "Progressive web app with offline support, push notifications, and native-like performance.",
-            tech: ["React", "PWA", "Service Workers", "IndexedDB"],
-            github: "https://github.com/alexchen/pwa-app",
-            live: "https://pwa-demo.example.com",
+                "AI-powered error monitoring and analysis platform that reads logs from Kibana/Elasticsearch. Features include intelligent error detection using RAG-powered LLM analysis, automated root cause prediction, code fix generation with PR templates, real-time Kafka-based log processing, Telegram alerts, and a comprehensive React dashboard for error tracking and management.",
+            tech: [
+                "Python",
+                "FastAPI",
+                "React",
+                "Ant Design",
+                "MongoDB",
+                "Elasticsearch",
+                "LangGraph",
+                "Kafka",
+                "Vector Embeddings",
+                "Telegram API",
+            ],
         },
     ],
 };
